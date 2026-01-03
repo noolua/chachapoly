@@ -4,6 +4,9 @@
 #include <stddef.h>
 #include <stdint.h>
 #include <string.h>
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 #define POLY1305_KEYLEN     32
 #define POLY1305_TAGLEN     16
@@ -27,6 +30,10 @@ void poly1305_init(struct poly1305_context *ctx, const unsigned char key[32]);
 void poly1305_update(struct poly1305_context *ctx, const unsigned char *m, size_t bytes);
 void poly1305_finish(struct poly1305_context *ctx, unsigned char mac[16]);
 void poly1305_auth(unsigned char mac[16], const unsigned char *m, size_t bytes, const unsigned char key[32]);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* POLY1305_H */
 

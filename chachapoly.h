@@ -28,6 +28,11 @@
 #include "chacha.h"
 #include "poly1305.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+
 #define CHACHAPOLY_OK           0
 #define CHACHAPOLY_INVALID_MAC  -1
 
@@ -78,5 +83,9 @@ int chachapoly_crypt(struct chachapoly_ctx *ctx, const void *nonce,
 int chachapoly_crypt_short(struct chachapoly_ctx *ctx, const void *nonce,
         const void *ad, int ad_len, void *input, int input_len,
         void *output, void *tag, int tag_len, int encrypt);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

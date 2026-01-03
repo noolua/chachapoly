@@ -11,6 +11,10 @@ Public domain.
 #include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 
 #define CHACHA_MINKEYLEN	16
 #define CHACHA_NONCELEN		8
@@ -33,6 +37,10 @@ void chacha_ivsetup(struct chacha_ctx *x, const unsigned char *iv,
         const unsigned char *ctr);
 void chacha_encrypt_bytes(struct chacha_ctx *x, const unsigned char *m,
         unsigned char *c, uint32_t bytes);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif	/* CHACHA_H */
 
